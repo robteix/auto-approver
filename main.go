@@ -15,15 +15,15 @@ import (
 )
 
 func usage() {
-	fmt.Println("Usage: maniaction [-user username] (merge|approve)")
-	os.Exit(0)
+	fmt.Println("Usage: maniaction [-u username] (merge|approve)")
+	os.Exit(-1)
 }
 
 func main() {
-	var username = flag.String("user", "", "optional GitHub username to restrict this action to")
+	var username = flag.String("u", "", "optional GitHub username to restrict this action to")
 	flag.Usage = usage
 	flag.Parse()
-	if flag.NArg() != 2 {
+	if flag.NArg() != 1 {
 		usage()
 	}
 
@@ -64,7 +64,7 @@ func main() {
 		log.Fatalf("Repo name %q invalid; should be in the form owner/repo", fullRepo)
 	}
 
-	switch flag.Arg(1) {
+	switch flag.Arg(0) {
 	case "approve":
 		en := "APPROVE"
 		req := &github.PullRequestReviewRequest{Event: &en}
