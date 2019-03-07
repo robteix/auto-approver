@@ -1,3 +1,3 @@
-# Auto Approve GitHub Action
+# Github Action
 
-Auto-approves pull requests.
+Auto-approves or auto-merges pull requests.

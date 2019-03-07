@@ -7,5 +7,5 @@ LABEL "com.github.actions.color"="green"
 
 WORKDIR /go/src/app
 COPY . .
-RUN GO111MODULE=on go build -o autoapprover .
-ENTRYPOINT ["/go/src/app/autoapprover"]
+RUN GO111MODULE=on go build -o maniaction .
+ENTRYPOINT ["/go/src/app/maniaction"]
